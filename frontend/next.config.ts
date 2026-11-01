@@ -4,6 +4,7 @@ const backendUrl = process.env.BACKEND_URL || "http://127.0.0.1:8008";
 
 const nextConfig: NextConfig = {
   devIndicators: false,
+  allowedDevOrigins: ["127.0.0.1", "localhost"],
   cacheComponents: true,
   partialPrefetching: true,
   turbopack: {
