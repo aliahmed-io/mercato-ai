@@ -185,7 +185,7 @@ export default function AnalyticsPage() {
                         );
                       }}
                     />
-                    <Bar dataKey="avg_demand" radius={[6, 6, 0, 0]}>
+                    <Bar isAnimationActive={false} dataKey="avg_demand" radius={[6, 6, 0, 0]}>
                       {activeProduct.weekday_pattern.map((_, index) => (
                         <Cell
                           key={`cell-${index}`}

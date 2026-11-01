@@ -269,6 +269,7 @@ export function SignatureForecastChart({
             {/* Shaded 95% Uncertainty Band (Electric Cobalt) */}
             {(showConfidence === "both" || showConfidence === "95") && (
               <Area
+                isAnimationActive={false}
                 type="monotone"
                 dataKey="upper95"
                 stroke="transparent"
@@ -280,6 +281,7 @@ export function SignatureForecastChart({
             {/* Shaded 80% Uncertainty Band (Acid Lime) */}
             {(showConfidence === "both" || showConfidence === "80") && (
               <Area
+                isAnimationActive={false}
                 type="monotone"
                 dataKey="upper80"
                 stroke="transparent"
@@ -290,6 +292,7 @@ export function SignatureForecastChart({
 
             {/* Subtle Fill under Historical Demand */}
             <Area
+                isAnimationActive={false}
               type="monotone"
               dataKey="actual"
               stroke="transparent"
@@ -299,6 +302,7 @@ export function SignatureForecastChart({
 
             {/* Actual Demand in Electric Cobalt (#3B82F6) */}
             <Line
+              isAnimationActive={false}
               type="monotone"
               dataKey="actual"
               stroke="#3B82F6"
@@ -310,6 +314,7 @@ export function SignatureForecastChart({
 
             {/* Forecast Demand in Acid Lime (#D4FF24) */}
             <Line
+              isAnimationActive={false}
               type="monotone"
               dataKey="predicted"
               stroke="#D4FF24"

@@ -230,6 +230,7 @@ export default function OverviewPage() {
                     }}
                   />
                   <Area
+                    isAnimationActive={false}
                     type="monotone"
                     dataKey="revenue"
                     stroke="#D4FF24"

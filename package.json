@@ -13,6 +13,7 @@
     "typecheck": "pnpm --prefix frontend typecheck",
     "test": "pnpm --prefix frontend test",
     "test:backend": ".\\.venv\\Scripts\\pytest",
-    "test:all": "pnpm --prefix frontend test && .\\.venv\\Scripts\\pytest"
+    "test:all": "pnpm --prefix frontend test && .\\.venv\\Scripts\\pytest",
+    "start": "node scripts/dev.mjs --production"
   }
 }

@@ -17,8 +17,19 @@ The responsive layout includes visible keyboard focus, reduced-motion support, a
 From the repository root:
 
 ```powershell
-pnpm dev
+npm start
 ```
+
+`npm start` works from the repository root or `frontend/`. It checks backend health, starts a local backend if needed, builds the latest frontend against the resolved backend address, and serves production mode. Frontend dependencies and Python dependencies must already be installed. Build or backend failures stop startup with an error instead of serving a broken workspace.
+
+For development with hot reload, use `npm run dev`. To request a port in PowerShell:
+
+```powershell
+$env:PORT = "4000"
+npm start
+```
+
+The launcher scans up to 100 ports when the requested port is occupied. `BACKEND_PORT` independently selects the preferred local API port (default 8008). `BACKEND_URL` can point to an already-running Mercato backend; it must pass the health check. Browser API requests stay relative to `/api/v1`, so changing the frontend port does not require client configuration. Production startup rebuilds the proxy configuration for the selected backend.
 
 On Windows, you can also run `start.bat` or `./start.ps1`. The launcher starts the frontend and backend, checks available ports, and proxies `/api/v1` requests to FastAPI. Use the local address printed by the launcher; it may select a port other than 3000. Stop the stack with Ctrl+C.
 

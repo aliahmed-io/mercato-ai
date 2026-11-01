@@ -6,7 +6,7 @@
     "dev": "node scripts/dev.mjs",
     "dev:next": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "node ../scripts/dev.mjs --production",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
     "test": "node --test __tests__/*.test.mjs"
