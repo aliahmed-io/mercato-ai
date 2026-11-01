@@ -15,7 +15,7 @@ export default function LandingPage() {
       <a className={"mc-skip"} href="#main">Skip to content</a>
       <header className={"mc-header"}>
         <Link href="/" className={"mc-brand"} aria-label="Mercato home"><AudioLines size={28} strokeWidth={2} />mercato<span>®</span></Link>
-        <nav aria-label="Main navigation"><a href="#experience">The experience</a><a href="#workflow">How it works</a><Link href="/models">The science</Link></nav>
+        <nav aria-label="Main navigation"><a href="#experience">The experience</a><a href="#equilibrium">Equilibrium</a><a href="#workflow">How it works</a><Link href="/models">The science</Link></nav>
         <Link href="/overview" className={"mc-workspace"}>Open workspace <ArrowUpRight size={17} /></Link>
       </header>
       <main id="main">
@@ -37,6 +37,35 @@ export default function LandingPage() {
           <div className={"mc-capabilities"}><span>Demand forecasting</span><i /><span>Inventory planning</span><i /><span>Smarter replenishment</span></div>
         </section>
         <DemandExperience />
+        <section id="equilibrium" className={"mc-equilibrium"} aria-labelledby="equilibrium-title">
+          <div className={"mc-equilibriumArt"}>
+            <Image
+              src="/images/equilibrium-sculpture.webp"
+              alt="Sculptural abstract art representing dynamic inventory and demand equilibrium"
+              fill
+              sizes="(max-width: 1024px) 100vw, 1440px"
+              className={"mc-equilibriumImg"}
+            />
+            <div className={"mc-artCaption mc-equilibriumCaption"}>
+              <span className={"mc-captionLine"} />
+              <span>Equilibrium in motion<br /><strong>Where forecast meets reality.</strong></span>
+            </div>
+          </div>
+          <div className={"mc-equilibriumCopy"}>
+            <div>
+              <span className={"mc-sectionLabel"}>Dynamic Equilibrium</span>
+              <h2 id="equilibrium-title">
+                Balance is not static.<br />
+                <em>It is a constant calibration.</em>
+              </h2>
+            </div>
+            <p>
+              Demand rises and recedes with seasonal cadence, promotions, and market shifts. 
+              Mercato continuously recalibrates your safety buffers and reorder thresholds — 
+              holding your business in effortless equilibrium without locking up capital in dormant stock.
+            </p>
+          </div>
+        </section>
         <section id="workflow" className={"mc-workflow"}>
           <div className={"mc-sectionHeading"}><div><span className={"mc-sectionLabel"}>From insight to action</span><h2>One connected<br /><em>way forward.</em></h2></div><p>A clearer view of your business.<br />A better starting point for every decision.</p></div>
           <div className={"mc-steps"}>{destinations.map(item=><Link key={item.number} href={item.href} className={"mc-step"}><div className={"mc-stepTop"}><span>{item.number}</span><MoveUpRight size={26} /></div><h3>{item.title}</h3><p>{item.text}</p><span className={"mc-stepLink"}>{item.label}</span></Link>)}</div>

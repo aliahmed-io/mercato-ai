@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { X, Sparkles, Calendar, Tag, Trash2 } from "lucide-react";
+import { X, Calendar, Tag, Trash2 } from "lucide-react";
 import { api, PromotionEvent, CalendarEvent } from "@/lib/api";
 import { toast } from "sonner";
 
@@ -95,7 +95,7 @@ export function PromotionPlannerModal({
         <div className="p-6 border-b border-white/[0.08] flex items-center justify-between bg-[#030407]/70">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-[10px] bg-[#1558C9]/25 border border-[#1558C9] text-[#D4FF24] flex items-center justify-center">
-              <Sparkles className="w-5 h-5" aria-hidden="true" />
+              <Tag className="w-5 h-5" aria-hidden="true" />
             </div>
             <div>
               <h2

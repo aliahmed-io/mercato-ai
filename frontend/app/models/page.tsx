@@ -23,12 +23,30 @@ export default function ModelEvaluationPage() {
   const [backtest, setBacktest] = useState<BacktestResult | null>(null);
   const [isRunningBacktest, setIsRunningBacktest] = useState(false);
 
+  // Fetch products once on mount with fallback
   useEffect(() => {
     let isMounted = true;
-    Promise.all([api.getProducts(), api.getModelLeaderboard(selectedSku)])
-      .then(([prods, lb]) => {
-        if (isMounted) {
+    api
+      .getProducts()
+      .then((prods) => {
+        if (isMounted && prods && prods.length > 0) {
           setProducts(prods);
+        }
+      })
+      .catch(console.warn);
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
+  // Fetch leaderboard when selectedSku changes
+  useEffect(() => {
+    let isMounted = true;
+    api
+      .getModelLeaderboard(selectedSku)
+      .then((lb) => {
+        if (isMounted && lb?.leaderboard) {
           setLeaderboard(lb.leaderboard);
         }
       })
@@ -79,17 +97,23 @@ export default function ModelEvaluationPage() {
               aria-label="Select product for model evaluation"
               value={selectedSku}
               onChange={(e) => setSelectedSku(e.target.value)}
-              className="px-3.5 py-2 text-[14px] font-semibold bg-[#0A0F1D] border border-[#1558C9]/50 rounded-full text-[#F8FAFC] focus:outline-none focus:ring-2 focus:ring-[#D4FF24] cursor-pointer"
+              className="min-w-[220px] sm:min-w-[260px] px-4 py-2 text-[14px] font-semibold bg-[#0A0F1D] border border-[#1558C9]/50 rounded-full text-[#F8FAFC] focus:outline-none focus:ring-2 focus:ring-[#D4FF24] cursor-pointer"
             >
-              {products.map((p) => (
-                <option
-                  key={p.sku}
-                  value={p.sku}
-                  className="bg-[#0A0F1D] text-[#F8FAFC]"
-                >
-                  {p.name} ({p.sku})
+              {products.length === 0 ? (
+                <option value="APP-20241" className="bg-[#0A0F1D] text-[#F8FAFC]">
+                  Linen Overshirt (APP-20241)
                 </option>
-              ))}
+              ) : (
+                products.map((p) => (
+                  <option
+                    key={p.sku}
+                    value={p.sku}
+                    className="bg-[#0A0F1D] text-[#F8FAFC]"
+                  >
+                    {p.name} ({p.sku})
+                  </option>
+                ))
+              )}
             </select>
 
             <button

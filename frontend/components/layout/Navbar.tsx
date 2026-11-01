@@ -42,10 +42,10 @@ export function Navbar() {
         <div className="flex items-center gap-8">
           <Link
             href="/"
-            className="flex items-center gap-3 group focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#D4FF24] rounded-[10px]"
+            className="flex items-center gap-2.5 group focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#D4FF24] rounded-[10px]"
           >
             <MercatoLogo
-              size={32}
+              size={28}
               className="transition-transform duration-200 group-hover:scale-105"
             />
             <span className="text-[18px] font-semibold tracking-tight text-[#F8FAFC]">
@@ -60,19 +60,19 @@ export function Navbar() {
               className="hidden md:flex items-center gap-7"
             >
               <a
-                href="#product-demand"
+                href="#experience"
                 className="text-[14px] font-medium text-[#94A3B8] hover:text-[#D4FF24] transition-colors"
               >
-                Product
+                The experience
               </a>
               <a
-                href="#attention-catalog"
+                href="#equilibrium"
                 className="text-[14px] font-medium text-[#94A3B8] hover:text-[#D4FF24] transition-colors"
               >
-                Catalog
+                Equilibrium
               </a>
               <a
-                href="#how-it-works"
+                href="#workflow"
                 className="text-[14px] font-medium text-[#94A3B8] hover:text-[#D4FF24] transition-colors"
               >
                 How it works
@@ -175,21 +175,21 @@ export function Navbar() {
           {isLanding ? (
             <div className="flex flex-col gap-2">
               <a
-                href="#product-demand"
+                href="#experience"
                 onClick={() => setMobileMenuOpen(false)}
                 className="px-3 py-2 rounded-[10px] text-[15px] font-medium text-[#F8FAFC] hover:bg-white/[0.05]"
               >
-                Product
+                The experience
               </a>
               <a
-                href="#attention-catalog"
+                href="#equilibrium"
                 onClick={() => setMobileMenuOpen(false)}
                 className="px-3 py-2 rounded-[10px] text-[15px] font-medium text-[#F8FAFC] hover:bg-white/[0.05]"
               >
-                Catalog
+                Equilibrium
               </a>
               <a
-                href="#how-it-works"
+                href="#workflow"
                 onClick={() => setMobileMenuOpen(false)}
                 className="px-3 py-2 rounded-[10px] text-[15px] font-medium text-[#F8FAFC] hover:bg-white/[0.05]"
               >

@@ -5,7 +5,6 @@ import Link from "next/link";
 import Image from "next/image";
 import {
   ArrowUpRight,
-  Sparkles,
   Calendar,
   FileDown,
   AlertCircle,
@@ -92,26 +91,21 @@ export default function OverviewPage() {
         {/* Executive Briefing Banner */}
         {briefing && (
           <div className="bg-[#0A0F1D] rounded-[20px] border border-[#1558C9]/45 p-5 sm:p-6 pedestal-ground-shadow">
-            <div className="flex items-start gap-3.5">
-              <div className="w-9 h-9 rounded-[10px] bg-[#1558C9]/25 border border-[#1558C9] text-[#D4FF24] flex items-center justify-center shrink-0 mt-0.5">
-                <Sparkles className="w-4 h-4" aria-hidden="true" />
+            <div className="space-y-1.5">
+              <div className="flex flex-wrap items-center gap-2">
+                <h2 className="font-semibold text-[15px] text-[#F8FAFC]">
+                  Planning summary
+                </h2>
+                <span className="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-[#D4FF24] text-[#030407]">
+                  {briefing.model_provenance}
+                </span>
+                <span className="text-[12px] text-[#94A3B8] tabular-nums">
+                  Holdout confidence: {(briefing.confidence_level * 100).toFixed(0)}%
+                </span>
               </div>
-              <div className="space-y-1.5">
-                <div className="flex flex-wrap items-center gap-2">
-                  <h2 className="font-semibold text-[15px] text-[#F8FAFC]">
-                    Planning summary
-                  </h2>
-                  <span className="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-[#D4FF24] text-[#030407]">
-                    {briefing.model_provenance}
-                  </span>
-                  <span className="text-[12px] text-[#94A3B8] tabular-nums">
-                    Holdout confidence: {(briefing.confidence_level * 100).toFixed(0)}%
-                  </span>
-                </div>
-                <p className="text-[14px] text-[#94A3B8] leading-[1.6]">
-                  {briefing.narrative}
-                </p>
-              </div>
+              <p className="text-[14px] text-[#94A3B8] leading-[1.6]">
+                {briefing.narrative}
+              </p>
             </div>
           </div>
         )}
@@ -358,19 +352,19 @@ export default function OverviewPage() {
                           <td className="py-3 text-right tabular-nums font-semibold text-[#D4FF24]">
                             €{formatNumber(p.revenue, 0)}
                           </td>
-                          <td className="py-3 text-center">
+                          <td className="py-3 text-center whitespace-nowrap">
                             {isCritical ? (
-                              <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-[#FB7185]/15 text-[#FB7185] border border-[#FB7185]/40">
+                              <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-[#FB7185]/15 text-[#FB7185] border border-[#FB7185]/40 whitespace-nowrap">
                                 <AlertCircle className="w-3 h-3" aria-hidden="true" />
                                 <span>{p.status_badge}</span>
                               </span>
                             ) : isReorder ? (
-                              <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-[#FBBF24]/15 text-[#FBBF24] border border-[#FBBF24]/40">
+                              <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-[#FBBF24]/15 text-[#FBBF24] border border-[#FBBF24]/40 whitespace-nowrap">
                                 <AlertTriangle className="w-3 h-3" aria-hidden="true" />
                                 <span>{p.status_badge}</span>
                               </span>
                             ) : (
-                              <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-[#D4FF24]/15 text-[#D4FF24] border border-[#D4FF24]/40">
+                              <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-[#D4FF24]/15 text-[#D4FF24] border border-[#D4FF24]/40 whitespace-nowrap">
                                 <CheckCircle2 className="w-3 h-3" aria-hidden="true" />
                                 <span>{p.status_badge}</span>
                               </span>

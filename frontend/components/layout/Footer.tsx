@@ -9,8 +9,8 @@ export function Footer() {
     <footer className="w-full bg-[#030407] border-t border-white/[0.08] text-[#F8FAFC] mt-auto">
       <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12 py-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
         <div className="space-y-2 max-w-sm">
-          <Link href="/" className="flex items-center gap-3">
-            <MercatoLogo size={28} />
+          <Link href="/" className="flex items-center gap-2.5">
+            <MercatoLogo size={26} />
             <span className="text-[17px] font-semibold tracking-tight text-[#F8FAFC]">
               Mercato
             </span>

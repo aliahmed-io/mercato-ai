@@ -451,28 +451,28 @@ export default function InventoryPage() {
                       </td>
 
                       {/* Gap / Excess */}
-                      <td className="py-3.5 px-3 text-right tabular-nums font-semibold">
+                      <td className="py-3.5 px-3 text-right tabular-nums font-semibold whitespace-nowrap">
                         {gapUnits < 0 ? (
-                          <span className="text-[#FB7185]">{gapUnits} units</span>
+                          <span className="text-[#FB7185] whitespace-nowrap">{gapUnits} units</span>
                         ) : (
-                          <span className="text-[#D4FF24]">+{gapUnits} units</span>
+                          <span className="text-[#D4FF24] whitespace-nowrap">+{gapUnits} units</span>
                         )}
                       </td>
 
                       {/* Accessible Stock Status Badge */}
                       <td className="py-3.5 px-3 text-center whitespace-nowrap">
                         {isCritical ? (
-                          <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[12px] font-semibold bg-[#FB7185]/15 text-[#FB7185] border border-[#FB7185]/40">
+                          <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[12px] font-semibold bg-[#FB7185]/15 text-[#FB7185] border border-[#FB7185]/40 whitespace-nowrap">
                             <AlertCircle className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
                             <span>{item.status_badge}</span>
                           </span>
                         ) : isReorder ? (
-                          <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[12px] font-semibold bg-[#FBBF24]/15 text-[#FBBF24] border border-[#FBBF24]/40">
+                          <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[12px] font-semibold bg-[#FBBF24]/15 text-[#FBBF24] border border-[#FBBF24]/40 whitespace-nowrap">
                             <AlertTriangle className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
                             <span>{item.status_badge}</span>
                           </span>
                         ) : (
-                          <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[12px] font-semibold bg-[#D4FF24]/15 text-[#D4FF24] border border-[#D4FF24]/40">
+                          <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[12px] font-semibold bg-[#D4FF24]/15 text-[#D4FF24] border border-[#D4FF24]/40 whitespace-nowrap">
                             <CheckCircle2 className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
                             <span>{item.status_badge}</span>
                           </span>
@@ -480,9 +480,9 @@ export default function InventoryPage() {
                       </td>
 
                       {/* Recommended Order */}
-                      <td className="py-3.5 px-3 text-right tabular-nums">
+                      <td className="py-3.5 px-3 text-right tabular-nums whitespace-nowrap">
                         {item.suggested_reorder_qty > 0 ? (
-                          <span className="font-bold text-[#D4FF24] bg-[#D4FF24]/15 border border-[#D4FF24]/35 px-2.5 py-1 rounded-full">
+                          <span className="font-bold text-[#D4FF24] bg-[#D4FF24]/15 border border-[#D4FF24]/35 px-2.5 py-1 rounded-full inline-flex items-center justify-end whitespace-nowrap">
                             +{item.suggested_reorder_qty} units
                           </span>
                         ) : (

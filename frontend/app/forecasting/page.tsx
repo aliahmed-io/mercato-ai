@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
-import { Download, RefreshCw, Sparkles } from "lucide-react";
+import { Download, RefreshCw, Tag } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { SignatureForecastChart } from "@/components/charts/SignatureForecastChart";
@@ -100,7 +100,7 @@ function ForecastingContent() {
               onClick={() => setIsPromoModalOpen(true)}
               className="inline-flex items-center text-[14px] px-4 py-2 rounded-full bg-[#0A0F1D] border border-[#1558C9]/50 text-[#F8FAFC] hover:bg-[#10192E] font-semibold transition-colors cursor-pointer"
             >
-              <Sparkles className="w-4 h-4 mr-1.5 text-[#D4FF24]" aria-hidden="true" />
+              <Tag className="w-4 h-4 mr-1.5 text-[#D4FF24]" aria-hidden="true" />
               Plan promotion
             </button>
 
@@ -147,15 +147,21 @@ function ForecastingContent() {
                 onChange={(e) => setSelectedSku(e.target.value)}
                 className="block w-full px-3.5 py-2 text-[14px] font-semibold bg-[#030407] border border-[#1558C9]/50 rounded-[10px] text-[#F8FAFC] focus:outline-none focus:ring-2 focus:ring-[#D4FF24] cursor-pointer"
               >
-                {products.map((p) => (
-                  <option
-                    key={p.sku}
-                    value={p.sku}
-                    className="bg-[#0A0F1D] text-[#F8FAFC]"
-                  >
-                    {p.name} ({p.sku})
+                {products.length === 0 ? (
+                  <option value={selectedSku} className="bg-[#0A0F1D] text-[#F8FAFC]">
+                    Linen Overshirt ({selectedSku})
                   </option>
-                ))}
+                ) : (
+                  products.map((p) => (
+                    <option
+                      key={p.sku}
+                      value={p.sku}
+                      className="bg-[#0A0F1D] text-[#F8FAFC]"
+                    >
+                      {p.name} ({p.sku})
+                    </option>
+                  ))
+                )}
               </select>
             </div>
 

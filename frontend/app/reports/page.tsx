@@ -149,15 +149,21 @@ export default function ReportsPage() {
                   onChange={(e) => setSelectedSku(e.target.value)}
                   className="w-full px-3.5 py-2 text-[14px] bg-[#030407] border border-[#1558C9]/50 rounded-[10px] font-semibold text-[#F8FAFC] focus:outline-none focus:ring-2 focus:ring-[#D4FF24]"
                 >
-                  {products.map((p) => (
-                    <option
-                      key={p.sku}
-                      value={p.sku}
-                      className="bg-[#0A0F1D] text-[#F8FAFC]"
-                    >
-                      {p.name} ({p.sku})
+                  {products.length === 0 ? (
+                    <option value={selectedSku} className="bg-[#0A0F1D] text-[#F8FAFC]">
+                      Linen Overshirt ({selectedSku})
                     </option>
-                  ))}
+                  ) : (
+                    products.map((p) => (
+                      <option
+                        key={p.sku}
+                        value={p.sku}
+                        className="bg-[#0A0F1D] text-[#F8FAFC]"
+                      >
+                        {p.name} ({p.sku})
+                      </option>
+                    ))
+                  )}
                 </select>
               </div>
             </div>
@@ -235,25 +241,25 @@ export default function ReportsPage() {
                       <td className="p-3 text-right tabular-nums text-[#94A3B8]">
                         {item.safety_stock.toFixed(0)}
                       </td>
-                      <td className="p-3 text-center">
+                      <td className="p-3 text-center whitespace-nowrap">
                         {item.risk_status === "CRITICAL" ? (
-                          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-[#FB7185]/15 text-[#FB7185] border border-[#FB7185]/40">
+                          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-[#FB7185]/15 text-[#FB7185] border border-[#FB7185]/40 whitespace-nowrap">
                             <AlertCircle className="w-3 h-3" aria-hidden="true" />
                             <span>{item.status_badge}</span>
                           </span>
                         ) : item.risk_status === "REORDER_NOW" ? (
-                          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-[#FBBF24]/15 text-[#FBBF24] border border-[#FBBF24]/40">
+                          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-[#FBBF24]/15 text-[#FBBF24] border border-[#FBBF24]/40 whitespace-nowrap">
                             <AlertTriangle className="w-3 h-3" aria-hidden="true" />
                             <span>{item.status_badge}</span>
                           </span>
                         ) : (
-                          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-[#D4FF24]/15 text-[#D4FF24] border border-[#D4FF24]/40">
+                          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-[#D4FF24]/15 text-[#D4FF24] border border-[#D4FF24]/40 whitespace-nowrap">
                             <CheckCircle2 className="w-3 h-3" aria-hidden="true" />
                             <span>{item.status_badge}</span>
                           </span>
                         )}
                       </td>
-                      <td className="p-3 text-right tabular-nums font-semibold text-[#D4FF24]">
+                      <td className="p-3 text-right tabular-nums font-semibold text-[#D4FF24] whitespace-nowrap">
                         {item.suggested_reorder_qty > 0
                           ? `+${item.suggested_reorder_qty} units`
                           : "0 units"}
