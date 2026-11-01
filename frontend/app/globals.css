@@ -1,0 +1,138 @@
+@import "tailwindcss";
+@import "./landing.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-manrope), system-ui, -apple-system, sans-serif;
+  --font-heading: var(--font-manrope), system-ui, -apple-system, sans-serif;
+  --font-display: var(--font-instrument-serif), Georgia, serif;
+
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-cobalt: var(--cobalt);
+  --color-metal: var(--metal);
+
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+
+  --radius-control: 10px;
+  --radius-surface: 20px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+}
+
+:root {
+  /* Mercato AI — Midnight Black (#030407), Electric Cobalt Blue (#1558C9), Acid Lime (#D4FF24) */
+  --canvas: #030407;
+  --surface: #0A0F1D;
+  --ink: #F8FAFC;
+  --muted: #94A3B8;
+  --accent: #D4FF24;
+  --cobalt: #1558C9;
+  --metal: #1E293B;
+
+  --background: #030407;
+  --foreground: #F8FAFC;
+
+  --card: #0A0F1D;
+  --card-foreground: #F8FAFC;
+
+  --popover: #0A0F1D;
+  --popover-foreground: #F8FAFC;
+
+  --primary: #D4FF24;
+  --primary-foreground: #030407;
+
+  --secondary: #1558C9;
+  --secondary-foreground: #F8FAFC;
+
+  --muted-foreground: #94A3B8;
+
+  --accent-foreground: #030407;
+
+  --destructive: #FB7185;
+
+  --border: #1E293B;
+  --input: #1E293B;
+  --ring: #D4FF24;
+  --radius: 0.625rem;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-[#030407] text-[#F8FAFC] font-sans antialiased selection:bg-[#D4FF24] selection:text-[#030407];
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-sans tracking-tight text-[#F8FAFC];
+  }
+}
+
+.font-display-serif {
+  font-family: var(--font-instrument-serif), Georgia, serif;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Volumetric Cobalt & Acid Lime Studio Lighting */
+.cobalt-stage-glow {
+  background:
+    radial-gradient(58% 54% at 62% 45%, rgba(21, 88, 201, 0.34) 0%, rgba(21, 88, 201, 0.10) 48%, rgba(3, 4, 7, 0) 100%),
+    radial-gradient(32% 30% at 62% 48%, rgba(212, 255, 36, 0.09) 0%, rgba(3, 4, 7, 0) 100%);
+}
+
+.pedestal-ground-shadow {
+  box-shadow:
+    0 28px 64px -16px rgba(3, 4, 7, 0.85),
+    0 0 40px -12px rgba(21, 88, 201, 0.28),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.07);
+}
+
+.floating-overlay-shadow {
+  box-shadow:
+    0 24px 56px -12px rgba(3, 4, 7, 0.9),
+    0 0 36px -8px rgba(21, 88, 201, 0.32),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
+}
+
+.lime-glow-button {
+  box-shadow:
+    0 0 28px -4px rgba(212, 255, 36, 0.45),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.4);
+}
+
+/* Reduced Motion Discipline */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
